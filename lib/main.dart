@@ -7,8 +7,4 @@ import 'package:movie_streaming_app/app.dart';
 
 import 'package:device_preview/device_preview.dart';
 
-void main() => runApp(
-  DevicePreview(
-    builder: (context) => MyApp(), // Wrap your app
-  ),
-);
+void main() => runApp(DevicePreview(builder: (context) => MyApp()));
