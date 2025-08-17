@@ -17,4 +17,9 @@ class ImagePath {
   static const chrisEvans = "assets/images/chris_evans.png";
   static const robertDowney = "assets/images/robert_downey.png";
   static const emmaWatson = "assets/images/emma_watson.png";
+
+  // Series Details
+  static const seriesBanner = "assets/images/series_banner.png";
+  static const season1Thumbnail = "assets/images/season1_thumbnail.png";
+  static const season2Thumbnail = "assets/images/season2_thumbnail.png";
 }
