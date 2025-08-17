@@ -8,4 +8,13 @@ class ImagePath {
   static const movie5 = "assets/images/movie5.png";
   static const movie6 = "assets/images/movie6.png";
   static const hermione = "assets/images/hermione.png";
+
+  static const bannerImage = "assets/images/banner_image.png";
+
+  static const movieImage1 = "assets/images/movie_image1.png";
+
+  // Actors
+  static const chrisEvans = "assets/images/chris_evans.png";
+  static const robertDowney = "assets/images/robert_downey.png";
+  static const emmaWatson = "assets/images/emma_watson.png";
 }

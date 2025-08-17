@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:movie_streaming_app/features/home/views/home_screen.dart';
+
 import '../controllers/onboarding_controller.dart';
 import 'widgets/onboarding_page.dart';
 
@@ -117,7 +119,9 @@ class OnboardingScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.to(() => HomeScreen());
+                            },
                             child: const Text("Login"),
                           ),
                         ),
