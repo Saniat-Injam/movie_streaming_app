@@ -9,9 +9,18 @@ class ImagePath {
   static const movie6 = "assets/images/movie6.png";
   static const hermione = "assets/images/hermione.png";
 
+  // Spalsh Image
+  static const splashImage = "assets/images/splash_image.png";
+
+  // Onboarding Image
+  static const onboardingImage = "assets/images/onboarding_image.png";
+  static const onboardingImage2 = "assets/images/onboarding_image2.png";
+
   static const bannerImage = "assets/images/banner_image.png";
 
   static const movieImage1 = "assets/images/movie_image1.png";
+
+  // Personalization
 
   // Actors
   static const chrisEvans = "assets/images/chris_evans.png";

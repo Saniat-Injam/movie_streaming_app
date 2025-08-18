@@ -109,41 +109,6 @@ class SeriesDetailsScreen extends StatelessWidget {
                     const SizedBox(height: 16),
 
                     // Season 1 Section
-                    // sectionTitle("Season 1"),
-                    // Obx(
-                    //   () => SizedBox(
-                    //     height: 160,
-                    //     child: ListView.builder(
-                    //       scrollDirection: Axis.horizontal,
-                    //       itemCount: controller.season1Episodes.length,
-                    //       itemBuilder: (context, index) {
-                    //         return EpisodeCard(
-                    //           episode: controller.season1Episodes[index],
-                    //         );
-                    //       },
-                    //     ),
-                    //   ),
-                    // ),
-
-                    // const SizedBox(height: 16),
-
-                    // Season 2 Section
-                    // sectionTitle("Season 2"),
-                    // Obx(
-                    //   () => SizedBox(
-                    //     height: 160,
-                    //     child: ListView.builder(
-                    //       scrollDirection: Axis.horizontal,
-                    //       itemCount: controller.season2Episodes.length,
-                    //       itemBuilder: (context, index) {
-                    //         return EpisodeCard(
-                    //           episode: controller.season2Episodes[index],
-                    //         );
-                    //       },
-                    //     ),
-                    //   ),
-                    // ),
-                    // Season 1 Section
                     sectionTitle("Season 1", controller.season1Episodes),
                     Obx(
                       () => SizedBox(
@@ -209,50 +174,6 @@ class SeriesDetailsScreen extends StatelessWidget {
       ),
     );
   }
-
-  // Widget sectionTitle(String title) {
-  //   return Row(
-  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //     children: [
-  //       Text(
-  //         title,
-  //         style: const TextStyle(
-  //           color: Colors.white,
-  //           fontSize: 18,
-  //           fontWeight: FontWeight.bold,
-  //         ),
-  //       ),
-  //       const Text(
-  //         "View All",
-  //         style: TextStyle(color: Colors.blue, fontSize: 14),
-  //       ),
-  //     ],
-  //   );
-  // }
-  // Widget sectionTitle(String title, List<Episode> episodes) {
-  //   return Row(
-  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //     children: [
-  //       Text(
-  //         title,
-  //         style: const TextStyle(
-  //           color: Colors.white,
-  //           fontSize: 18,
-  //           fontWeight: FontWeight.bold,
-  //         ),
-  //       ),
-  //       GestureDetector(
-  //         onTap: () {
-  //           controller.showAllEpisodes(title, episodes);
-  //         },
-  //         child: const Text(
-  //           "View All",
-  //           style: TextStyle(color: Colors.blue, fontSize: 14),
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
 
   // inside SeriesDetailsScreen class
   Widget sectionTitle(String title, List<Episode> episodes) {
