@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:movie_streaming_app/core/utils/constants/image_path.dart';
 import '../models/genre_model.dart';
 
 class PersonalizationController extends GetxController {
@@ -14,26 +15,10 @@ class PersonalizationController extends GetxController {
 
   void loadGenres() {
     genres.assignAll([
-      GenreModel(
-        name: "Action",
-        imageUrl: "assets/images/action.jpg",
-        likes: 4324,
-      ),
-      GenreModel(
-        name: "Adventure",
-        imageUrl: "assets/images/adventure.jpg",
-        likes: 2592,
-      ),
-      GenreModel(
-        name: "Comedy",
-        imageUrl: "assets/images/comedy.jpg",
-        likes: 920,
-      ),
-      GenreModel(
-        name: "Drama",
-        imageUrl: "assets/images/drama.jpg",
-        likes: 1423,
-      ),
+      GenreModel(name: "Action", imageUrl: ImagePath.action, likes: 4324),
+      GenreModel(name: "Adventure", imageUrl: ImagePath.adventure, likes: 2592),
+      GenreModel(name: "Comedy", imageUrl: ImagePath.comedy, likes: 920),
+      GenreModel(name: "Drama", imageUrl: ImagePath.drama, likes: 1423),
       // Add more if needed
     ]);
   }

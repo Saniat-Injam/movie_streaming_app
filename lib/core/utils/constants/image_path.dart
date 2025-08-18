@@ -21,6 +21,10 @@ class ImagePath {
   static const movieImage1 = "assets/images/movie_image1.png";
 
   // Personalization
+  static const action = "assets/images/action.png";
+  static const adventure = "assets/images/adventure.png";
+  static const comedy = "assets/images/comedy.png";
+  static const drama = "assets/images/drama.png";
 
   // Actors
   static const chrisEvans = "assets/images/chris_evans.png";

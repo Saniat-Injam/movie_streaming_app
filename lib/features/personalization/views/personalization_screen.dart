@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:movie_streaming_app/features/home/views/home_screen.dart';
 import 'package:movie_streaming_app/features/personalization/views/widgets/genre_card.dart';
 import '../controllers/personalization_controller.dart';
 
@@ -77,7 +78,7 @@ class PersonalizationScreen extends StatelessWidget {
                   onPressed: controller.selectedGenres.isEmpty
                       ? null
                       : () {
-                          // Next action
+                          Get.to(() => HomeScreen());
                         },
                   child: const Text("Continue", style: TextStyle(fontSize: 16)),
                 ),
