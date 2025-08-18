@@ -87,7 +87,6 @@
 import 'package:get/get.dart';
 import 'package:movie_streaming_app/core/utils/constants/image_path.dart';
 import 'package:movie_streaming_app/features/home/models/movie_model.dart';
-import 'package:movie_streaming_app/features/home/models/actor_model.dart';
 import 'package:video_player/video_player.dart';
 
 class HomeController extends GetxController {
