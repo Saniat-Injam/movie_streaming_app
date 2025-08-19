@@ -22,7 +22,17 @@ class VideoPlayerControllerX extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    controller = VideoPlayerController.networkUrl(Uri.parse(episode.videoUrl!));
+    // controller = VideoPlayerController.networkUrl(Uri.parse(episode.videoUrl!));
+    // controller = VideoPlayerController.asset(episode.videoUrl!);
+
+    if (episode.videoUrl!.startsWith("http")) {
+      controller = VideoPlayerController.networkUrl(
+        Uri.parse(episode.videoUrl!),
+      );
+    } else {
+      controller = VideoPlayerController.asset(episode.videoUrl!);
+    }
+
     controller.initialize().then((_) {
       duration.value = controller.value.duration;
       isInitialized.value = true;
