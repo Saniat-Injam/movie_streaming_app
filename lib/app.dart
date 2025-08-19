@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:movie_streaming_app/routes/app_routes.dart';
 import 'core/bindings/controller_binder.dart';
 import 'core/utils/theme/theme.dart';
-import 'package:device_preview/device_preview.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,8 +18,6 @@ class MyApp extends StatelessWidget {
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (_, child) {
         return GetMaterialApp(
-          locale: DevicePreview.locale(context),
-          builder: DevicePreview.appBuilder,
           debugShowCheckedModeBanner: false,
           initialRoute: AppRoute.getSpalashScreen(),
           getPages: AppRoute.routes,
