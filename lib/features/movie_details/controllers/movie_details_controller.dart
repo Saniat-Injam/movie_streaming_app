@@ -24,7 +24,7 @@ class MovieDetailsController extends GetxController {
           "she becomes a pivotal figure in the mission to steal the Death Star plans, which ultimately leads to the events of A New Hope. "
           "The film showcases the sacrifices made by unsung heroes of the rebellion, blending war-movie intensity with the iconic Star Wars universe.",
       posterUrl: ImagePath.bannerImage,
-      trailerThumbnail: ImagePath.bannerImage,
+      trailerThumbnail: ImagePath.trailer,
     );
   }
 

@@ -1,89 +1,3 @@
-// import 'package:get/get.dart';
-// import 'package:movie_streaming_app/core/utils/constants/image_path.dart';
-// import 'package:movie_streaming_app/features/home/models/movie_model.dart';
-
-// class HomeController extends GetxController {
-//   var featuredMovie = Movie(
-//     title: "Rogue One: A Star Wars Story",
-//     posterUrl: ImagePath.bannerImage,
-//     rating: 8.4,
-//     year: "2016",
-//     duration: "1h 54m",
-//     genre: "Sci-Fi",
-//   ).obs;
-
-//   var topCharts = <Movie>[
-//     Movie(
-//       title: "Dune",
-//       posterUrl: ImagePath.movieImage1,
-//       rating: 8.9,
-//       year: "2021",
-//       duration: "2h 35m",
-//       genre: "Action",
-//     ),
-//     Movie(
-//       title: "Shang-Chi",
-//       posterUrl: ImagePath.movieImage1,
-//       rating: 8.4,
-//       year: "2021",
-//       duration: "2h 12m",
-//       genre: "Action",
-//     ),
-//   ].obs;
-// }
-
-// import 'package:get/get.dart';
-// import 'package:movie_streaming_app/core/utils/constants/image_path.dart';
-// import 'package:movie_streaming_app/features/home/models/movie_model.dart';
-// import 'package:movie_streaming_app/features/home/models/actor_model.dart';
-
-// class HomeController extends GetxController {
-//   var featuredMovie = Movie(
-//     title: "Rogue One: A Star Wars Story",
-//     posterUrl: ImagePath.bannerImage,
-//     rating: 8.4,
-//     year: "2016",
-//     duration: "1h 54m",
-//     genre: "Sci-Fi",
-//   ).obs;
-
-//   var topCharts = <Movie>[
-//     Movie(
-//       title: "Dune",
-//       posterUrl: ImagePath.movieImage1,
-//       rating: 8.9,
-//       year: "2021",
-//       duration: "2h 35m",
-//       genre: "Action",
-//     ),
-//     Movie(
-//       title: "Shang-Chi",
-//       posterUrl: ImagePath.movieImage1,
-//       rating: 8.4,
-//       year: "2021",
-//       duration: "2h 12m",
-//       genre: "Action",
-//     ),
-//   ].obs;
-
-//   // New: Weekly Highlight
-//   var weeklyHighlight = Movie(
-//     title: "Suicide Squad",
-//     posterUrl: ImagePath.movieImage1,
-//     rating: 7.6,
-//     year: "2015",
-//     duration: "1h 24m",
-//     genre: "Sci-Fi",
-//   ).obs;
-
-//   // New: Popular Stars
-//   var popularStars = <Actor>[
-//     Actor(name: "Chris Evans", imageUrl: ImagePath.movieImage1),
-//     Actor(name: "Robert Downey", imageUrl: ImagePath.movieImage1),
-//     Actor(name: "Emma Watson", imageUrl: ImagePath.movieImage1),
-//   ].obs;
-// }
-
 import 'package:get/get.dart';
 import 'package:movie_streaming_app/core/utils/constants/image_path.dart';
 import 'package:movie_streaming_app/features/home/models/movie_model.dart';
@@ -99,10 +13,11 @@ class HomeController extends GetxController {
     genre: "Sci-Fi",
   ).obs;
 
+  // Top Chart's Movie
   var topCharts = <Movie>[
     Movie(
       title: "Dune",
-      posterUrl: ImagePath.movieImage1,
+      posterUrl: ImagePath.dune,
       rating: 8.9,
       year: "2021",
       duration: "2h 35m",
@@ -110,11 +25,43 @@ class HomeController extends GetxController {
     ),
     Movie(
       title: "Shang-Chi",
-      posterUrl: ImagePath.movieImage1,
+      posterUrl: ImagePath.shangChi,
       rating: 8.4,
       year: "2021",
       duration: "2h 12m",
+      genre: "Drama",
+    ),
+    Movie(
+      title: "Legends",
+      posterUrl: ImagePath.legends,
+      rating: 8.4,
+      year: "2016",
+      duration: "1h 54m",
       genre: "Action",
+    ),
+    Movie(
+      title: "The Good Dinosaur",
+      posterUrl: ImagePath.theGoodDinosaur,
+      rating: 8.4,
+      year: "2016",
+      duration: "1h 54m",
+      genre: "Comedy",
+    ),
+    Movie(
+      title: "Shang-Chi",
+      posterUrl: ImagePath.soul,
+      rating: 8.9,
+      year: "2022",
+      duration: "2h 35m",
+      genre: "Thriller",
+    ),
+    Movie(
+      title: "Shang-Chi",
+      posterUrl: ImagePath.brave,
+      rating: 8.1,
+      year: "2024",
+      duration: "2h 40m",
+      genre: "Adventure",
     ),
   ].obs;
 
@@ -131,14 +78,10 @@ class HomeController extends GetxController {
   // Video Player Controller managed by GetX
   Rx<VideoPlayerController?> videoController = Rx<VideoPlayerController?>(null);
 
-  // var popularStars = <Actor>[
-  //   Actor(name: "Chris Evans", imageUrl: ImagePath.chrisEvans),
-  //   Actor(name: "Robert Downey", imageUrl: ImagePath.robertDowney),
-  //   Actor(name: "Emma Watson", imageUrl: ImagePath.emmaWatson),
-  // ].obs;
   var popularStars = <Map<String, String>>[
     {"name": "Robert Downey Jr.", "image": ImagePath.chrisEvans},
-    {"name": "Scarlett Johansson", "image": ImagePath.chrisEvans},
+    {"name": "Scarlett Johansson", "image": ImagePath.robertDowney},
+    {"name": "Chris Hemsworth", "image": ImagePath.emmaWatson},
     {"name": "Chris Hemsworth", "image": ImagePath.chrisEvans},
   ].obs;
 

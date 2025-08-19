@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_streaming_app/features/series_details/models/episode_model.dart';
-import 'package:movie_streaming_app/features/series_details/views/widgets/episode_lit_tile.dart';
+import 'package:movie_streaming_app/features/series_details/views/widgets/episode_list_tile.dart';
 
 class AllEpisodesBottomSheet extends StatelessWidget {
   final String seasonTitle;

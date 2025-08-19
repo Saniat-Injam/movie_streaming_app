@@ -12,10 +12,7 @@ class TrailerWidget extends StatelessWidget {
       height: 180,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        image: DecorationImage(
-          image: NetworkImage(imageUrl),
-          fit: BoxFit.cover,
-        ),
+        image: DecorationImage(image: AssetImage(imageUrl), fit: BoxFit.cover),
       ),
       child: const Center(
         child: Icon(Icons.play_circle_fill, size: 64, color: Colors.white),

@@ -12,6 +12,7 @@ class VideoPlayerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = Get.put(VideoPlayerControllerX(episode: episode));
 
+    // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: () async {
         if (c.isFullScreen.value) {

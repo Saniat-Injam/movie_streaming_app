@@ -96,15 +96,20 @@ class WeeklyHighlight extends StatelessWidget {
                 Row(
                   children: [
                     const Icon(Icons.star, color: Colors.amber, size: 16),
+                    SizedBox(width: 4),
                     Text(
                       "${highlight["rating"]}",
                       style: const TextStyle(color: Colors.white70),
                     ),
+                    SizedBox(width: 4),
+                    Text(
+                      "${highlight["year"]}  •  ${highlight["duration"]}  •  ${highlight["genre"]}",
+                      style: const TextStyle(
+                        color: Colors.white54,
+                        fontSize: 12,
+                      ),
+                    ),
                   ],
-                ),
-                Text(
-                  "${highlight["year"]}  •  ${highlight["duration"]}  •  ${highlight["genre"]}",
-                  style: const TextStyle(color: Colors.white54, fontSize: 12),
                 ),
               ],
             ),

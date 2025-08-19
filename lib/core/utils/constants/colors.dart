@@ -60,4 +60,13 @@ class AppColors {
   static const Color info = Color(
     0xFF29B6F6,
   ); // Blue for informational messages
+
+  // Primary Colors
+  static const Color whitePrimary = Color(0xffFFFFFF);
+  static const Color bluePrimary = Color(0xff298CFF);
+  static const Color greyPrimary = Color(0xffC2C2C2);
+  static const Color blackPrimary = Color(0xff0A0A0A);
+
+  // Text Colors
+  static const Color textColor2 = Color(0xff0A0A0A);
 }

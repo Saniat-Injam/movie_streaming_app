@@ -1,13 +1,13 @@
 class ImagePath {
   //static const  String logo='assets/images/userprofile.png';
-  // images
-  static const movie1 = "assets/images/movie1.png";
-  static const movie2 = "assets/images/movie2.png";
-  static const movie3 = "assets/images/movie3.png";
-  static const movie4 = "assets/images/movie4.png";
-  static const movie5 = "assets/images/movie5.png";
-  static const movie6 = "assets/images/movie6.png";
-  static const hermione = "assets/images/hermione.png";
+
+  // Movies
+  static const dune = "assets/images/dune.png";
+  static const shangChi = "assets/images/shang_chi.png";
+  static const legends = "assets/images/legends.png";
+  static const theGoodDinosaur = "assets/images/the_good_dinosaur.png";
+  static const soul = "assets/images/soul.png";
+  static const brave = "assets/images/brave.png";
 
   // Spalsh Image
   static const splashImage = "assets/images/splash_image.png";
@@ -19,6 +19,7 @@ class ImagePath {
   static const bannerImage = "assets/images/banner_image.png";
 
   static const movieImage1 = "assets/images/movie_image1.png";
+  static const trailer = "assets/images/trailer.png";
 
   // Personalization
   static const action = "assets/images/action.png";

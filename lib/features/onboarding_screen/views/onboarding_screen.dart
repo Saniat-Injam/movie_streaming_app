@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:movie_streaming_app/core/common/styles/global_text_style.dart';
+import 'package:movie_streaming_app/core/utils/constants/colors.dart';
 import 'package:movie_streaming_app/features/auth/login/views/login_screen.dart';
 
 import '../controllers/onboarding_controller.dart';
@@ -31,14 +33,14 @@ class OnboardingScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: AppColors.whitePrimary,
                           ),
                         ),
                         const WidgetSpan(
                           child: Icon(
                             Icons.play_circle_fill,
                             size: 22,
-                            color: Colors.blue,
+                            color: AppColors.bluePrimary,
                           ),
                         ),
                         const TextSpan(
@@ -46,7 +48,7 @@ class OnboardingScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: AppColors.whitePrimary,
                           ),
                         ),
                       ],
@@ -56,7 +58,11 @@ class OnboardingScreen extends StatelessWidget {
                     onTap: controller.skip,
                     child: Text(
                       "Skip",
-                      style: TextStyle(color: Colors.grey[300]),
+                      style: getTextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.greyPrimary,
+                      ),
                     ),
                   ),
                 ],

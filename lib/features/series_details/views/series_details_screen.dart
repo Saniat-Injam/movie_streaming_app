@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:movie_streaming_app/core/utils/constants/icon_path.dart';
 import 'package:movie_streaming_app/core/utils/constants/image_path.dart';
 import 'package:movie_streaming_app/features/series_details/models/episode_model.dart';
 import 'package:movie_streaming_app/features/series_details/views/widgets/episode_card.dart';
@@ -145,25 +147,58 @@ class SeriesDetailsScreen extends StatelessWidget {
                     const SizedBox(height: 20),
 
                     // Continue Watching Button
-                    Obx(
-                      () => ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          shape: RoundedRectangleBorder(
+                    // Obx(
+                    //   () => ElevatedButton.icon(
+                    //     style: ElevatedButton.styleFrom(
+                    //       backgroundColor: Colors.blue,
+                    //       shape: RoundedRectangleBorder(
+                    //         borderRadius: BorderRadius.circular(12),
+                    //       ),
+                    //       padding: const EdgeInsets.symmetric(
+                    //         vertical: 14,
+                    //         horizontal: 20,
+                    //       ),
+                    //     ),
+                    //     onPressed: () {},
+                    //     icon: const Icon(Icons.play_arrow, color: Colors.white),
+                    //     label: Text(
+                    //       "Continue Watch ${controller.continueWatching.value}",
+                    //       style: const TextStyle(color: Colors.white),
+                    //     ),
+                    //   ),
+                    // ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 24,
+                                vertical: 12,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            onPressed: () {},
+                            icon: SvgPicture.asset(IconPath.play),
+                            label: Text(
+                              "Continue Watch ${controller.continueWatching.value}",
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade900,
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 14,
-                            horizontal: 20,
-                          ),
+                          padding: const EdgeInsets.all(12),
+                          child: SvgPicture.asset(IconPath.watchlist),
                         ),
-                        onPressed: () {},
-                        icon: const Icon(Icons.play_arrow, color: Colors.white),
-                        label: Text(
-                          "Continue Watch ${controller.continueWatching.value}",
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
+                      ],
                     ),
                   ],
                 ),

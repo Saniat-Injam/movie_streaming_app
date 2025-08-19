@@ -27,8 +27,8 @@ class EpisodeCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
                     episode.thumbnail,
-                    height: 100,
-                    width: 180,
+                    height: 150,
+                    width: 220,
                     fit: BoxFit.cover,
                   ),
                 ),

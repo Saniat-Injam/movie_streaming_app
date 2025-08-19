@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:movie_streaming_app/core/utils/constants/colors.dart';
+import 'package:movie_streaming_app/core/utils/constants/icon_path.dart';
 import 'package:movie_streaming_app/features/home/controllers/home_controller.dart';
+import 'package:movie_streaming_app/features/home/views/top_chart_screen.dart';
 import 'package:movie_streaming_app/features/home/views/widgets/actor_card.dart';
 import 'package:movie_streaming_app/features/home/views/widgets/movie_card.dart';
 import 'package:movie_streaming_app/features/home/views/widgets/weekly_highlight.dart';
@@ -75,24 +79,27 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 12),
+
                           Row(
                             children: [
-                              ElevatedButton.icon(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blue,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 24,
-                                    vertical: 12,
+                              Expanded(
+                                child: ElevatedButton.icon(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blue,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 24,
+                                      vertical: 12,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
                                   ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
+                                  onPressed: () {
+                                    Get.to(() => MovieDetailsScreen());
+                                  },
+                                  icon: SvgPicture.asset(IconPath.play),
+                                  label: const Text("Watch Movie"),
                                 ),
-                                onPressed: () {
-                                  Get.to(() => MovieDetailsScreen());
-                                },
-                                icon: const Icon(Icons.play_arrow),
-                                label: const Text("Watch Movie"),
                               ),
                               const SizedBox(width: 12),
                               Container(
@@ -101,10 +108,7 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 padding: const EdgeInsets.all(12),
-                                child: const Icon(
-                                  Icons.bookmark_border,
-                                  color: Colors.white,
-                                ),
+                                child: SvgPicture.asset(IconPath.watchlist),
                               ),
                             ],
                           ),
@@ -125,7 +129,7 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
                       "Top Charts",
                       style: TextStyle(
@@ -134,7 +138,14 @@ class HomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text("View All", style: TextStyle(color: Colors.blue)),
+                    //Text("View All", style: TextStyle(color: Colors.blue)),
+                    GestureDetector(
+                      onTap: () => Get.to(() => TopChartsScreen()),
+                      child: const Text(
+                        "View All",
+                        style: TextStyle(color: Colors.blue),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -179,7 +190,7 @@ class HomeScreen extends StatelessWidget {
                     itemCount: homeController.popularStars.length,
                     itemBuilder: (context, index) {
                       final star = homeController.popularStars[index];
-                      return PopularStarCard(
+                      return ActorCard(
                         name: star["name"]!,
                         imageUrl: star["image"]!,
                       );
@@ -193,18 +204,27 @@ class HomeScreen extends StatelessWidget {
       ),
 
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
+        backgroundColor: AppColors.blackPrimary,
+        selectedItemColor: AppColors.bluePrimary,
+        unselectedItemColor: AppColors.greyPrimary,
         type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark_border),
+            icon: SvgPicture.asset(IconPath.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(IconPath.watchlist),
             label: "Watchlist",
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Accounts"),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(IconPath.search),
+            label: "Search",
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(IconPath.profile),
+            label: "Accounts",
+          ),
         ],
       ),
     );

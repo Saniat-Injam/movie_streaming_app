@@ -23,14 +23,14 @@ class SeriesController extends GetxController {
       thumbnail: ImagePath.season1Thumbnail,
       duration: "40:12",
       progress: 0.8,
-      videoUrl: null, // or sampleUrl
+      videoUrl: sampleUrl,
     ),
     Episode(
       title: "Episode 2: The Hunt",
       thumbnail: ImagePath.season1Thumbnail,
       duration: "42:30",
       progress: 0.3,
-      videoUrl: null, // or sampleUrl
+      videoUrl: sampleUrl,
     ),
   ].obs;
 

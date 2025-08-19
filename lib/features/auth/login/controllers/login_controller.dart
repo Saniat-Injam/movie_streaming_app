@@ -7,6 +7,17 @@ class LoginController extends GetxController {
   var isLoading = false.obs;
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  var isEmailFilled = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    // Listen to changes in email field
+    emailController.addListener(() {
+      isEmailFilled.value = emailController.text.isNotEmpty;
+    });
+  }
 
   void login() {
     if (emailController.text.isEmpty || passwordController.text.isEmpty) {
@@ -15,8 +26,7 @@ class LoginController extends GetxController {
     }
     isLoading.value = true;
 
-    // Simulate API call
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(microseconds: 500), () {
       isLoading.value = false;
       Get.snackbar("Success", "Logged in successfully");
       Get.to(() => PersonalizationScreen());
@@ -28,7 +38,6 @@ class LoginController extends GetxController {
   }
 
   void navigateToSignUp() {
-    //Get.toNamed('/signup');
     Get.to(() => RegisterScreen());
   }
 
