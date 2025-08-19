@@ -51,6 +51,17 @@ class RegisterController extends GetxController {
   final dobController = TextEditingController();
 
   var isButtonEnabled = false.obs;
+  var isEmailFilled = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    // Listen to changes in email field
+    emailController.addListener(() {
+      isEmailFilled.value = emailController.text.isNotEmpty;
+    });
+  }
 
   void onChanged() {
     registerModel.update((val) {

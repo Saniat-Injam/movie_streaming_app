@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:movie_streaming_app/core/common/widgets/custom_text_field.dart';
+import 'package:movie_streaming_app/core/utils/constants/colors.dart';
+import 'package:movie_streaming_app/core/utils/constants/icon_path.dart';
 import 'package:movie_streaming_app/features/auth/registration/controllers/registration_controller.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -19,35 +22,40 @@ class RegisterScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /// Back + Skip
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    // Back button aligned left
                     IconButton(
                       icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Get.back(),
                     ),
+
+                    // Center text
+                    Expanded(
+                      child: Center(
+                        child: const Text(
+                          "Register",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    // Skip button aligned right
                     TextButton(
                       onPressed: () {},
                       child: const Text(
                         "Skip",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: AppColors.greyPrimary),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
 
-                /// Title
-                const Text(
-                  "Register",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 40),
                 const Text(
                   "Create New Account",
                   style: TextStyle(color: Colors.white, fontSize: 18),
@@ -55,18 +63,32 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 /// Input Fields
-                CustomTextField(
-                  controller: controller.emailController,
-                  hintText: "Email",
-                  icon: Icons.email,
-                  onChanged: (_) => controller.onChanged(),
+                // CustomTextField(
+                //   controller: controller.emailController,
+                //   hintText: "Email",
+                //   svgIconPath: controller.isEmailFilled.value
+                //       ? IconPath.emailBlue
+                //       : IconPath.email,
+
+                //   onChanged: (_) => controller.onChanged(),
+                // ),
+                Obx(
+                  () => CustomTextField(
+                    controller: controller.emailController,
+                    hintText: "Email",
+                    svgIconPath: controller.isEmailFilled.value
+                        ? IconPath.emailBlue
+                        : IconPath.email,
+                    onChanged: (_) => controller.onChanged(),
+                  ),
                 ),
+
                 const SizedBox(height: 15),
 
                 CustomTextField(
                   controller: controller.passwordController,
                   hintText: "Password",
-                  icon: Icons.lock,
+                  svgIconPath: IconPath.passwordLock,
                   obscureText: true,
                   onChanged: (_) => controller.onChanged(),
                 ),
@@ -75,45 +97,64 @@ class RegisterScreen extends StatelessWidget {
                 CustomTextField(
                   controller: controller.confirmPasswordController,
                   hintText: "Confirm Password",
-                  icon: Icons.lock,
+                  svgIconPath: IconPath.passwordLock,
                   obscureText: true,
                   onChanged: (_) => controller.onChanged(),
                 ),
                 const SizedBox(height: 15),
 
+                // CustomTextField(
+                //   controller: controller.dobController,
+                //   hintText: "DD / MM / YYYY",
+                //   svgIconPath: IconPath.calendar,
+                //   onChanged: (_) => controller.onChanged(),
+                // ),
                 CustomTextField(
                   controller: controller.dobController,
                   hintText: "DD / MM / YYYY",
-                  icon: Icons.calendar_today,
-                  onChanged: (_) => controller.onChanged(),
+                  svgIconPath: IconPath.calendar,
+                  readOnly: true, // prevent manual typing
+                  onTap: () async {
+                    DateTime? pickedDate = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(1900),
+                      lastDate: DateTime.now(),
+                      builder: (context, child) {
+                        return Theme(
+                          data: ThemeData.dark().copyWith(
+                            colorScheme: const ColorScheme.dark(
+                              primary: Colors.blue, // header background color
+                              onPrimary: Colors.white, // header text color
+                              surface: Colors.black, // calendar background
+                              onSurface: Colors.white, // default text color
+                            ),
+                          ),
+                          child: child!,
+                        );
+                      },
+                    );
+
+                    if (pickedDate != null) {
+                      controller.dobController.text =
+                          "${pickedDate.day.toString().padLeft(2, '0')}/"
+                          "${pickedDate.month.toString().padLeft(2, '0')}/"
+                          "${pickedDate.year}";
+                      controller.onChanged();
+                    }
+                  },
+                  onChanged: (_) =>
+                      controller.onChanged(), // keep your validation
                 ),
+
                 const SizedBox(height: 25),
 
-                /// Create Account Button
-                // Obx(
-                //   () => ElevatedButton(
-                //     style: ElevatedButton.styleFrom(
-                //       minimumSize: const Size(double.infinity, 50),
-                //       backgroundColor: controller.isButtonEnabled.value
-                //           ? Colors.white
-                //           : Colors.white24,
-                //     ),
-                //     onPressed: controller.isButtonEnabled.value
-                //         ? controller.register
-                //         : null,
-                //     child: const Text(
-                //       "Create Account",
-                //       style: TextStyle(color: Colors.black, fontSize: 16),
-                //     ),
-                //   ),
-                // ),
                 Obx(
                   () => ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 50),
                       backgroundColor: controller.isButtonEnabled.value
-                          ? Colors
-                                .blue // ✅ Blue when valid
+                          ? Colors.blue
                           : Colors.white24,
                     ),
                     onPressed: controller.isButtonEnabled.value
@@ -150,7 +191,7 @@ class RegisterScreen extends StatelessWidget {
                     minimumSize: const Size(double.infinity, 50),
                     backgroundColor: Colors.white,
                   ),
-                  icon: const Icon(Icons.apple, color: Colors.black),
+                  icon: SvgPicture.asset(IconPath.appleLogo),
                   label: const Text(
                     "Register with Apple",
                     style: TextStyle(color: Colors.black),
@@ -166,7 +207,7 @@ class RegisterScreen extends StatelessWidget {
                     backgroundColor: Colors.black,
                     side: const BorderSide(color: Colors.white24),
                   ),
-                  icon: const Icon(Icons.g_mobiledata, color: Colors.white),
+                  icon: SvgPicture.asset(IconPath.googleLogo),
                   label: const Text(
                     "Register with Google",
                     style: TextStyle(color: Colors.white),

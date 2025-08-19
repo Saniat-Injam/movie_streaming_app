@@ -349,17 +349,13 @@ class LoginScreen extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 50),
                 ),
                 onPressed: () {},
-                icon: SvgPicture.asset(
-                  IconPath.appleLogo,
-                  height: 24,
-                  width: 24,
-                ),
+                icon: SvgPicture.asset(IconPath.appleLogo),
                 label: Text(
                   "Login with Apple",
                   style: getTextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
-                    color: AppColors.textColor2,
+                    color: AppColors.blackPrimary,
                   ),
                 ),
               ),
@@ -375,11 +371,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {},
-                icon: SvgPicture.asset(
-                  IconPath.googleLogo,
-                  height: 24,
-                  width: 24,
-                ),
+                icon: SvgPicture.asset(IconPath.googleLogo),
                 label: Text(
                   "Login with Google",
                   style: getTextStyle(
