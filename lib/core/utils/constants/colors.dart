@@ -18,6 +18,7 @@ class AppColors {
   static const Gradient linearGradient = LinearGradient(
     begin: Alignment(0.0, 0.0),
     end: Alignment(0.707, -0.707),
+    // ignore: use_full_hex_values_for_flutter_colors
     colors: [Color(0xfffff9a9e), Color(0xFFFAD0C4), Color(0xFFFAD0C4)],
   );
   // Text Colors

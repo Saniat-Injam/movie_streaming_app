@@ -25,12 +25,7 @@ class EpisodeCard extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    episode.thumbnail,
-                    height: 150,
-                    width: 220,
-                    fit: BoxFit.cover,
-                  ),
+                  child: Image.asset(episode.thumbnail, fit: BoxFit.cover),
                 ),
                 // center play
                 Positioned.fill(
